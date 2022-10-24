@@ -9,7 +9,27 @@ const htmlEls = {
   author: document.getElementById("author"),
   body: document.getElementById("body"),
   postsContainer: document.getElementById("postsContainer"),
+  columns: document.getElementById("columns"),
 };
+
+//  https://prnt.sc/3dOFAk7GxHnw pareinkant radio button, keiciam kiek stulpeliu yra. Susikurti radio inputu html patiems.
+
+const radioInputsArr = htmlEls.columns.querySelectorAll("input");
+console.log("radioInputsArr ===", radioInputsArr);
+for (let oneRadioEl of radioInputsArr) {
+  oneRadioEl.addEventListener("change", columnsChangeHandler);
+}
+
+function columnsChangeHandler(event) {
+  // console.log('change???', event.target);
+  // event.target yra radio inputas kuris katik buvo pazymetas
+  const radioEl = event.target;
+  // gaunam kiek stulpeliu reikia
+  const columnsNumber = +radioEl.value;
+  console.log("columnsNuber ===", columnsNumber);
+  // nustatyti stulpeliu css
+  htmlEls.postsContainer.style.gridTemplateColumns = `repeat(${columnsNumber}, 1fr)`;
+}
 
 // initial posts
 const initPostsArr = [
@@ -64,11 +84,11 @@ function whitchAuthor(id) {
       console.log("Jame Bond");
       return "Jame Bond";
     case 2:
-      console.log("Jake Lake");
-      return "Jake Lake";
+      console.log("Serbentautas");
+      return "Serbentautas";
     case 3:
-      console.log("Blue Blues");
-      return "Blue Blues";
+      console.log("Severijus Klaida");
+      return "Severijus Klaida";
     default:
       return "nera autoriaus";
   }
@@ -80,6 +100,7 @@ function whitchAuthor(id) {
  * Main app function
  */
 function init() {
+  initPosts();
   initPosts();
 }
 init();

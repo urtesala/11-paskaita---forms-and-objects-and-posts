@@ -13,28 +13,39 @@
   <body>
     <div class="container">
       <h1>Blog application</h1>
-      <form id="createPost" class="flex flex-col card align-start">
+
+      <form id="createPost" class="flex flex-col card align-start mb-40">
         <input type="text" placeholder="Title" id="title" />
         <input type="url" placeholder="Image" id="image" />
         <input type="date" placeholder="Date" id="date" />
         <select name="author" id="author">
           <option selected disabled value="">Select author</option>
-          <option value="1">James Bond</option>
-          <option value="2">Jake Lake</option>
-          <option value="3">Blue Blues</option>
+          <option value="1">Jame Bond</option>
+          <option value="2">Serbentautas</option>
+          <option value="3">Severijus Klaida</option>
         </select>
         <textarea name="body" id="body" placeholder="Open your mind"></textarea>
         <button type="submit">Create</button>
       </form>
 
       <main>
-        <h2>Our Posts</h2>
-        <div id="postsContainer">
+        <h2>Our posts</h2>
+        <fieldset id="columns" class="columns">
+          <legend>How many columns?</legend>
+          <input type="radio" name="cols" id="one" value="1" />
+          <label for="one">One</label>
+          <input type="radio" name="cols" id="two" value="2" />
+          <label for="two">Two</label>
+          <input type="radio" name="cols" id="three" value="3" checked />
+          <!-- grid-template-columns: repeat(3, 1fr); -->
+          <label for="three">Three</label>
+        </fieldset>
+        <div id="postsContainer" class="postsContainer">
           <!-- <div class="card post">
-            <img src="https://picsum.photos/200/300" alt="pic" />
-            <h3 class="post__title">Labas</h3>
-            <h4 class="post__author">Autorius:</h4>
-            <p class="post__date">Data:</p>
+            <img src="https://picsum.photos/id/1019/5472/3648" alt="sdsd">
+            <h3 class="post__title">trtrt</h3>
+            <h4 class="post__author">Autorius: </h4>
+            <p class="post__date">dsds</p>
             <p class="post__text">sdsd</p>
           </div> -->
         </div>
